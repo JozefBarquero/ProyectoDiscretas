@@ -1,0 +1,9 @@
+
+servidor-ranking/*
+
+!servidor-ranking/server.js
+!servidor-ranking/package.json
+
+servidor-ranking/node_modules/
+servidor-ranking/package-lock.json
+servidor-ranking/ranking.db

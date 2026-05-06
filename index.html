@@ -17,6 +17,7 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="#" onclick="showSection('calculator')">Calculadora</a></li>
             <li><a href="#" onclick="showSection('exercises')">Ejercicios</a></li>
+            <li><a href="#" onclick="showSection('game')">Juego Desafío</a></li>
         </ul>
     </nav>
 
@@ -44,37 +45,89 @@
             
             <div id="exercises-container"></div>
         </section>
+
+        <section id="game" class="hidden-section">
+            <h1>Desafío de Recorridos</h1>
+            <p>Pon a prueba tus conocimientos de árboles de expresión de forma infinita. ¡Falla una y el juego termina!</p>
+            
+            <div id="game-setup" class="card">
+                <h3>Ingresa tu Apodo para Jugar</h3>
+                <br>
+                <input type="text" id="player-name" placeholder="Ej: ReyDelInorden" maxlength="15">
+                <button onclick="startGame()">Comenzar Desafío</button>
+            </div>
+
+            <div id="game-play" class="card hidden-section">
+                <div class="game-header">
+                    <span class="badge score-badge">Puntos: <span id="game-score">0</span></span>
+                    <span class="badge user-badge">Jugador: <span id="game-player-display"></span></span>
+                </div>
+                <hr class="game-divider">
+                <h2 class="expr-challenge" id="game-expression">3 + 4</h2>
+                
+                <p>Escribe el resultado del recorrido solicitado abajo:</p>
+                
+                <div class="input-group">
+                    <label id="game-question-label"><strong>Postorden (Postfija):</strong></label>
+                    <input type="text" id="game-answer" placeholder="Separa los términos con espacios. Ej: 3 4 +" autocomplete="off">
+                </div>
+                <button type="button" onclick="submitAnswer()" style="width: 100%;">Enviar Respuesta</button>
+            </div>
+
+            <div id="game-over" class="card hidden-section" style="text-align: center;">
+                <h2 style="color: #ef4444; margin-bottom: 10px;">¡Fin del Juego!</h2>
+                <p>Buen intento. Lograste acumular un total de:</p>
+                <div class="final-score" id="game-final-score">0</div>
+                <p>Puntos Guardados en el Ranking Global</p>
+               <button type="button" onclick="resetGameView()" style="background-color: #22c55e;">Volver a Jugar</button>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="color: #a855f7; margin-bottom: 1rem;">🏆 Top 10 Ranking Global</h3>
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Jugador</th>
+                            <th>Puntos</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                        </tbody>
+                </table>
+            </div>
+        </section>
     </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Universidad Nacional</h4>
+                <p>Estructuras Discretas para Informática</p>
+                <p>Ciclo I - 2026</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Estudiantes</h4>
+                <ul>
+                    <li>Henry Jozéf Barquero Ordóñez</li>
+                    <li>Fabricio Mendez Zamora</li>
+                    <li>Jose Geovanny Rojas Ramirez</li>
+                    <li>Caleb Gutierrez Sandoval</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Docente</h4>
+                <p>Gaudy Julissa Jiménez Ordóñez</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Proyecto - Exposición
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-
-<footer class="main-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Universidad Nacional</h4>
-            <p>Estructuras Discretas para Informática</p>
-            <p>Ciclo I - 2026</p>
-        </div>
-        
-        <div class="footer-section">
-            <h4>Estudiantes</h4>
-            <ul>
-                <li>Henry Jozéf Barquero Ordóñez</li>
-                <li>Fabricio Mendez Zamora</li>
-                <li>Jose Geovanny Rojas Ramirez</li>
-                <li>Caleb Gutierrez Sandoval</li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4>Docente</h4>
-            <p>Gaudy Julissa Jiménez Ordóñez</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2026 Proyecto - Exposición
-    </div>
-</footer>
-
 </html>

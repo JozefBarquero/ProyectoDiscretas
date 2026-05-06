@@ -204,3 +204,105 @@ button:hover { background: var(--primary-dark); }
         padding-left: 0;
     }
 }
+
+/* Estilos añadidos para el Juego Desafío */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.score-badge {
+    background-color: #fef08a;
+    color: #854d0e;
+    border: 1px solid #fef08a;
+}
+
+.user-badge {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.game-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.expr-challenge {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px dashed var(--primary);
+    letter-spacing: 2px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #475569;
+}
+
+#game-answer {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#game-answer:focus {
+    border-color: #a855f7;
+    outline: none;
+}
+
+.final-score {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #a855f7;
+    margin: 1rem 0;
+}
+
+/* Estilo para la Tabla de Rankings */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.ranking-table th, .ranking-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.ranking-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+}
+
+.ranking-table tr:hover {
+    background-color: #f1f5f9;
+}
