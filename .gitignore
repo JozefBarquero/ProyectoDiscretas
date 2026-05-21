@@ -1,8 +1,11 @@
-
 servidor-ranking/*
+
 
 !servidor-ranking/server.js
 !servidor-ranking/package.json
+!servidor-ranking/public/
+!servidor-ranking/public/**
+
 
 servidor-ranking/node_modules/
 servidor-ranking/package-lock.json
