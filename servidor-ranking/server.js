@@ -24,7 +24,7 @@ const db = new sqlite3.Database('./ranking.db', (err) => {
 });
 
 app.get('/api/ranking', (req, res) => {
-    const query = `SELECT nombre, puntos, fecha FROM ranking ORDER BY puntos DESC LIMIT 10`;
+    const query = `SELECT nombre, puntos, fecha FROM ranking ORDER BY puntos DESC LIMIT 50`;
     db.all(query, [], (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
