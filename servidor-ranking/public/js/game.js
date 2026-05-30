@@ -10,10 +10,13 @@ let gameState = {
 };
 
 function generateRandomExpression() {
-    const operators = ['+', '-', '*', '/'];
+   
+    const operators = ['+', '-', '*', '/', '^']; 
+    
     const getRandomNum = () => Math.floor(Math.random() * 9) + 1; // 1 a 9
     const getRandomOp = () => operators[Math.floor(Math.random() * operators.length)];
 
+  
     const randomDifficulty = Math.floor(Math.random() * 4);
 
     if (randomDifficulty === 0) {
@@ -39,21 +42,30 @@ function nextChallenge() {
     gameState.currentExpression = expr;
     gameState.currentTokens = tokenize(expr);
     
-    const askPrefix = Math.random() < 0.5;
     
-    if (askPrefix) {
+    const postfix = infixToPostfix(gameState.currentTokens);
+    const prefix = infixToPrefix(gameState.currentTokens);
+    const root = buildTree(postfix);
+    
+    
+    const askType = Math.floor(Math.random() * 3);
+    
+    if (askType === 0) {
         gameState.typeAsked = "prefix";
-        document.getElementById('game-question-label').innerHTML = `<strong>Preorden (Prefija) de la expresión:</strong>`;
-        gameState.expectedAnswer = infixToPrefix(gameState.currentTokens).join(' ').trim();
-    } else {
+        document.getElementById('game-question-label').innerHTML = `<strong>Preorden (Prefija):</strong>`;
+        gameState.expectedAnswer = prefix.join(' ').trim();
+    } else if (askType === 1) {
         gameState.typeAsked = "postfix";
-        document.getElementById('game-question-label').innerHTML = `<strong>Postorden (Postfija) de la expresión:</strong>`;
-        gameState.expectedAnswer = infixToPostfix(gameState.currentTokens).join(' ').trim();
+        document.getElementById('game-question-label').innerHTML = `<strong>Postorden (Postfija):</strong>`;
+        gameState.expectedAnswer = postfix.join(' ').trim();
+    } else {
+        gameState.typeAsked = "inorder";
+        document.getElementById('game-question-label').innerHTML = `<strong>Entreorden (Infija):</strong>`;
+        gameState.expectedAnswer = getEntreorden(root).join(' ').trim();
     }
     
     document.getElementById('game-expression').innerText = expr;
 }
-
 function startGame() {
     const nameInput = document.getElementById('player-name').value.trim();
     if (!nameInput) {

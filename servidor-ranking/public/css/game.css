@@ -1,0 +1,89 @@
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.score-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.user-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.game-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin-bottom: 2rem;
+}
+
+.expr-challenge {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    background: #0f172a;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    letter-spacing: 4px;
+    font-family: monospace;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+#game-answer {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: monospace;
+}
+
+.final-score {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1.5rem 0;
+    filter: drop-shadow(0 0 10px rgba(139,92,246,0.4));
+}
+
+
+@media (max-width: 768px) {
+    .expr-challenge {
+        font-size: 2rem;
+        padding: 1.5rem 1rem;
+    }
+
+    #game-answer {
+        font-size: 1.2rem;
+    }
+}

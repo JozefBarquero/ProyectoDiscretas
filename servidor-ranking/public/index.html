@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Árboles de Expresión</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
     <nav class="navbar">
@@ -24,18 +27,25 @@
     <main>
         <section id="calculator" class="active-section">
             <h1>Evaluador de Expresiones</h1>
-            <p>Ingresa una ecuación matemática estándar (Inorden) usando números y los operadores +, -, *, /. El sistema simulará el recorrido del árbol para darte los resultados.</p>
+            <p>Ingresa una ecuación estándar (Inorden) usando números y los operadores +, -, *, /, ^.</p>
             
             <div class="card">
                 <input type="text" id="expression-input" placeholder="Ejemplo: ( 3 + 4 ) * 5">
                 <button onclick="processExpression()">Procesar Árbol</button>
                 
                 <div class="results">
-                    <p><strong>Inorden (Original):</strong> <span id="res-in">-</span></p>
                     <p><strong>Preorden (Prefija):</strong> <span id="res-pre">-</span></p>
+                    <p><strong>Entreorden (Infija):</strong> <span id="res-in">-</span></p>
                     <p><strong>Postorden (Postfija):</strong> <span id="res-post">-</span></p>
                     <p><strong>Resultado Final:</strong> <span id="res-eval">-</span></p>
                 </div>
+
+                <h3 style="margin-bottom: 10px; overflow: auto; text-align: center;">Árbol de Expresión Generado</h3>
+                
+                <div style="margin-top: 20px; overflow: auto; text-align: center; max-height: 600px;"> 
+                    <canvas id="tree-canvas" width="300" height="150" style="background-color: #ffffff;"></canvas>
+                </div>
+                
             </div>
         </section>
 
@@ -69,7 +79,7 @@
                 
                 <div class="input-group">
                     <label id="game-question-label"><strong>Postorden (Postfija):</strong></label>
-                    <input type="text" id="game-answer" placeholder="Separa los términos con espacios. Ej: 3 4 +" autocomplete="off">
+                    <input type="text" id="game-answer" placeholder="Separa los términos. Ej: 3 4 +" autocomplete="off">
                 </div>
                 <button type="button" onclick="submitAnswer()" style="width: 100%;">Enviar Respuesta</button>
             </div>
